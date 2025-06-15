@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Rewriter Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div id="app">
+    <h1>URL Rewriter 設定</h1>
+    <div class="container">
+      <div class="rules-section">
+        <h2>URL置換ルール</h2>
+        <div id="rules-list"></div>
+        <button id="add-rule" class="btn btn-primary">新しいルールを追加</button>
+      </div>
+      
+      <div class="actions">
+        <button id="save" class="btn btn-success">保存</button>
+        <button id="reset" class="btn btn-secondary">リセット</button>
+      </div>
+    </div>
+  </div>
+  
+  <div id="rule-template" style="display: none;">
+    <div class="rule-item">
+      <div class="rule-fields">
+        <label>
+          元のホスト名:
+          <input type="text" class="from-host" placeholder="example.com">
+        </label>
+        <label>
+          置換先ホスト名:
+          <input type="text" class="to-host" placeholder="example.org">
+        </label>
+        <label>
+          <input type="checkbox" class="enabled" checked> 有効
+        </label>
+      </div>
+      <button class="remove-rule btn btn-danger">削除</button>
+    </div>
+  </div>
+</body>
+</html>
