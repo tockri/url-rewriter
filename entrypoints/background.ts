@@ -5,7 +5,6 @@ interface UrlRewriteRule {
 }
 
 export default defineBackground(() => {
-  console.log('URL Rewriter background started', { id: browser.runtime.id });
 
   // URL置換ルールを取得
   const getRewriteRules = async (): Promise<UrlRewriteRule[]> => {
@@ -39,7 +38,6 @@ export default defineBackground(() => {
     if (tab.url && tab.id) {
       const newUrl = await rewriteUrl(tab.url);
       if (newUrl !== tab.url) {
-        console.log(`Rewriting URL: ${tab.url} -> ${newUrl}`);
         browser.tabs.update(tab.id, { url: newUrl });
       }
     }
@@ -49,7 +47,6 @@ export default defineBackground(() => {
     if (changeInfo.url && tab.url) {
       const newUrl = await rewriteUrl(tab.url);
       if (newUrl !== tab.url) {
-        console.log(`Rewriting URL: ${tab.url} -> ${newUrl}`);
         browser.tabs.update(tabId, { url: newUrl });
       }
     }
@@ -67,7 +64,6 @@ export default defineBackground(() => {
         }
       ];
       await browser.storage.sync.set({ urlRewriteRules: defaultRules });
-      console.log('Default URL rewrite rules set');
     }
   });
 });
