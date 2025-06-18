@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
-
-interface UrlRewriteRule {
-  readonly fromHost: string;
-  readonly toHost: string;
-  readonly enabled: boolean;
-}
+import { UrlRewriteRule } from '../../types/url-rewrite-rule';
 
 const RuleItem: React.FC<{
   rule: UrlRewriteRule;
