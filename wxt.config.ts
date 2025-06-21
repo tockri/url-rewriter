@@ -9,7 +9,8 @@ export default defineConfig({
   },
   vite: () => ({
     esbuild: {
-      jsx: 'automatic'
+      jsx: 'automatic',
+      jsxImportSource: '@emotion/react'
     }
   })
 });
